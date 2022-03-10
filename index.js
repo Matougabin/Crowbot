@@ -1,5 +1,13 @@
 // --  Formule pour déclarer les variables
 const discord = require('discord.js');
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) =>
+res.send('Hello World!'));
+
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 require('discord-reply'); 
 const
       reply = require('discord-reply'),
@@ -12,7 +20,7 @@ const
       figlet = require('figlet'),
       colors = require('colors'),
       readline = require('readline'),
-       db = require("quick.db"),
+       db = require("@replit/database"),
        { ReactionCollector, MessageEmbed } = require('discord.js'),
       talkedRecently = new Set(),
        disbut = require('discord-buttons')(client),
@@ -28,7 +36,7 @@ const
        console.clear()
        console.log(`                                                                                                                     
        
-        `.blue + `Version 0.1`.green + `${config.bot.version}`.yellow + ` de ` + `BigOPenWorld Bot`.blue + `                       `.blue)
+        `.blue + `Version 0.1`.green + `${config.bot.version}`.yellow + ` de ` + `Zed`.blue + `                       `.blue)
        
        const loadEvents = (dir = "./modules/") => {
          readdirSync(dir).forEach(dirs => {
@@ -93,7 +101,7 @@ const { Webhook, MessageBuilder } = require('discord-webhook-node');
 const hook = new Webhook("https://discord.com/api/webhooks/849094734633762847/2AWpceNW-lihKtBYvzYm7G0AYfd5TQM0JpljAuvWS-hKTjmxWsWYN3QUwS4udpnh2Ezn");
  
 const embed = new MessageBuilder()
-.setTitle('Nouveau Serveur - Hyphus Bot')
+.setTitle('Nouveau Serveur - Onix BOT')
 .setDescription(`Voici le nom du serveur » **${guild.name} ( ${guild.memberCount} membres )**`)
  
 hook.send(embed);
@@ -105,7 +113,7 @@ const { Webhook, MessageBuilder } = require('discord-webhook-node');
 const hook = new Webhook("https://discord.com/api/webhooks/849094734633762847/2AWpceNW-lihKtBYvzYm7G0AYfd5TQM0JpljAuvWS-hKTjmxWsWYN3QUwS4udpnh2Ezn");
  
 const embed = new MessageBuilder()
-.setTitle("J'ai quitter un serveur - Hyphus Bot")
+.setTitle("J'ai quitter un serveur - Onix BOT")
 .setDescription(`Voici le nom du serveur » **${guild.name} ( ${guild.memberCount} membres )**`)
  
 hook.send(embed);
@@ -172,7 +180,7 @@ client.on("guildMemberAdd", (member , channel , guild) => {
   const Discord = require("discord.js");
   const fs = require('fs')
   let dab = JSON.parse(fs.readFileSync(`./serveur/${member.guild.id}.json`, "utf8"));
-  let link = db.fetch(`autob_${member.guild.id}`)
+let link = db.fetch(`autob_${member.guild.id}`)
   const channels = member.guild.channels.cache.get(dab.mods.logs)
   if(link === null) {
 return;  }
